@@ -147,6 +147,25 @@ const BoundedRadio = {
     }
 }
 
+const ButtonsWithHistory = {
+    props: ['buttonNames'],
+    template: `
+        <div>
+            <button
+                v-for="name in buttonNames"
+                v-on:click="onClick(name)"
+            >
+                {{name}}
+            </button>
+        </div>
+    `,
+    methods: {
+        onClick(name) {
+            this.$emit("buttonHistoryAdded", name);
+        }
+    }
+}
+
 const app = Vue.createApp({
     components: {
         Hello,
@@ -155,7 +174,8 @@ const app = Vue.createApp({
         BoundedName,
         BoundedText,
         BoundedCheckBox,
-        BoundedRadio
+        BoundedRadio,
+        ButtonsWithHistory
     },
     template: `
     <hello message="Hello VueJS3!" />
@@ -173,11 +193,27 @@ const app = Vue.createApp({
     <hr>
     <BoundedRadio />
     <hr/>
+    <ButtonsWithHistory 
+        v-bind:buttonNames="buttonNames" 
+        v-on:buttonHistoryAdded="addButtonHistory"
+    />
+    <p>
+        <span v-for="history in buttonHistory">
+            {{ history }}
+        </span>
+    </p>
      `,
     data() {
         return {
             greetings: "Hello World!",
             numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            buttonNames: ["Sa","Re","Ga","Ma","Pa","Dha","Ni"],
+            buttonHistory: []
+        }
+    },
+    methods: {
+        addButtonHistory($event) {
+            this.buttonHistory.push($event);
         }
     }
 });
