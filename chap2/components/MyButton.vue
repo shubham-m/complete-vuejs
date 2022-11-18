@@ -25,6 +25,10 @@ export default {
         },
         isEnabled: {
             type: Boolean
+        },
+        type: {
+            type: String,
+            default: "button"
         }
     },
     computed: {
