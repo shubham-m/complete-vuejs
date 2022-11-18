@@ -95,3 +95,17 @@ Combine the Composition API, Vue Router and Vuex to build a large, complex appli
 - desien patterns
 - vue/vuex/vue-router
 - optimizing with caching in Vuex
+
+# Running the project
+
+Running Chapter 1
+
+```
+yarn vite chap1
+```
+
+Running Chapter 2
+
+```
+yarn vite --config vite.config.js chap2
+```
