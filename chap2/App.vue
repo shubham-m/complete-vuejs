@@ -1,5 +1,5 @@
 <template>
-    <div class="container-md my-2 p-5 border bg-info bg-opacity-25 rounded">
+    <div class="container-fluid my-2 p-5 border bg-info bg-opacity-25 rounded">
         <form @submit.prevent="logData">
             <div class="display-6 mb-3 d-flex justify-content-center">Sign in</div>
             <div class="row">
