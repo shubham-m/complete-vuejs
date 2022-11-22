@@ -12,7 +12,7 @@ export const router = createRouter({
             children: [
                 {
                     name: "Albums",
-                    path: 'albums/:id',
+                    path: ':id',
                     component: PhotoView
                 }
             ]

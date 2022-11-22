@@ -11,8 +11,8 @@ export const photos = {
         }
     },
     actions: {
-        async getByAlbum($context, {album}) {
-            const response = await window.fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${album.id}`);
+        async getByAlbum($context, {albumId}) {
+            const response = await window.fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`);
             const photos = await response.json();
             $context.commit("setPhotos", photos);
         }
